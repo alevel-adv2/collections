@@ -43,5 +43,6 @@ class NumberUtilsTest {
 
         Assertions.assertEquals(result.size(), 5);
         Assertions.assertEquals(result.get(2), 22);
+        Assertions.assertEquals(result.get(4), 6);
     }
 }
