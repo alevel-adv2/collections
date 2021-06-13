@@ -7,30 +7,27 @@ import java.util.List;
 public class StringUtils {
 
     public String getLongestWord(List<String> words) {
-
-        List<Integer> wordSizes = new ArrayList<>();
-        String longestWord = "";
-
-        for (int i = 0; i < words.size(); i++) {
-            String currentWord = words.get(i);
-            wordSizes.add(currentWord.length());
-        }
-
-        wordSizes.sort(new Comparator() {
-            @Override
-            public int compare(Object o1, Object o2) {
-                return (Integer) o1 - (Integer) o2;
+        if(words.size()>0){
+            String longestWord = words.get(0);
+            for (String element:words){
+                if(element.length()>longestWord.length()){
+                    longestWord =element;
+                }
             }
-        });
+            return longestWord;
+        }
+        return "";
+    }
 
-        int maxSize = wordSizes.get(words.size()-1);
-
-        for (int i = 0; i < words.size(); i++) {
-            if (words.get(i).length() == maxSize) {
-                longestWord = words.get(i);
+    public List<String> getDuplicates(List<String> words){
+        List<String> stringsDuplicates = new ArrayList<>();
+        for (int i = 0; i < words.size()-1; i++) {
+            for (int j = i+1; j < words.size(); j++) {
+                if(words.get(i).equals(words.get(j))){
+                    stringsDuplicates.add(words.get(j));
+                }
             }
         }
-
-        return longestWord;
+        return stringsDuplicates;
     }
 }
