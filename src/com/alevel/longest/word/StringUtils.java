@@ -1,36 +1,31 @@
 package com.alevel.longest.word;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 
 public class StringUtils {
 
+    public List<String> getDuplicates(List<String> words) {
+        List<String> duplicates = new ArrayList<>();
+        for (int i = 0; i < words.size() - 1; i++) {
+            for (int j = i + 1; j < words.size(); j++) {
+                if (words.get(i).equals(words.get(j))) {
+                    duplicates.add(words.get(j));
+                }
+            }
+        }
+        return duplicates;
+    }
+
     public String getLongestWord(List<String> words) {
-
-        List<Integer> wordSizes = new ArrayList<>();
-        String longestWord = "";
-
-        for (int i = 0; i < words.size(); i++) {
-            String currentWord = words.get(i);
-            wordSizes.add(currentWord.length());
-        }
-
-        wordSizes.sort(new Comparator() {
-            @Override
-            public int compare(Object o1, Object o2) {
-                return (Integer) o1 - (Integer) o2;
-            }
-        });
-
-        int maxSize = wordSizes.get(words.size()-1);
-
-        for (int i = 0; i < words.size(); i++) {
-            if (words.get(i).length() == maxSize) {
-                longestWord = words.get(i);
+        String longestWord = words.get(0);
+        if (words.size() > 0) {
+            for (String word : words) {
+                if (word.length() > longestWord.length()) {
+                    longestWord = word;
+                }
             }
         }
-
         return longestWord;
     }
 }
