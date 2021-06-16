@@ -39,6 +39,12 @@ class NumberUtilsTest {
         numbers.add(6);
         numbers.add(7);
 
-        Assertions.assertEquals(multiplyOddNumbers.multiplyOddNumber(numbers), 105);
+        List<Integer> multiplyOdd = new ArrayList<>();
+        multiplyOdd.add(2);
+        multiplyOdd.add(6);
+        multiplyOdd.add(10);
+        multiplyOdd.add(14);
+
+        Assertions.assertEquals(multiplyOddNumbers.multiplyOddNumber(numbers), multiplyOdd);
     }
 }

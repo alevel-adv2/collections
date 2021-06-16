@@ -1,5 +1,6 @@
 package com.alevel.hw14;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class NumberUtils {
@@ -12,19 +13,16 @@ public class NumberUtils {
         return sum;
     }
 
-    public int multiplyOddNumber(List<Integer> numbers) {
+    public List<Integer> multiplyOddNumber(List<Integer> numbers) {
 
-        int multiplyOddNumber = 1;
+        List<Integer> multiplyOddNumbers = new ArrayList<>();
+        int multiply;
         for (Integer number : numbers) {
             if (number % 2 != 0) {
-                multiplyOddNumber *= number;
+                multiply = number * 2;
+                multiplyOddNumbers.add (multiply);
             }
         }
-        if (!numbers.contains(1)) {
-            if (multiplyOddNumber == 1) {
-                multiplyOddNumber = 0;
-            }
-        }
-        return multiplyOddNumber;
+        return multiplyOddNumbers;
     }
 }
