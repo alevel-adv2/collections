@@ -1,5 +1,3 @@
-package com.alevel.longest.word;
-
 package HW14;
 
 import java.util.*;
